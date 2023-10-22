@@ -24,12 +24,7 @@
 	
 	
 	<h2>Hello, welcome back ${pas.name} </h2>
-		id = ${pas.id} <br>
-		${pas.nic} <br>
-		${pas.email} <br>
-		${pas.phone} <br>
-		${pas.username} <br>
-		${pas.password} <br>
+		
 	</c:forEach>
 	
 	<c:url value="UpdatePassenger.jsp" var="passengerUpdate">
@@ -44,8 +39,10 @@
 		
 	</c:url>
 	
-   <a href="${passengerUpdate}">edit my profile</a> 
+   <a href="${passengerUpdate}"><input type="submit" name="submit" value="edit my profile"></a> 
     <br><br>
+    
+    
     
     <c:url value="addCard.jsp" var="addCard">
 		
@@ -54,17 +51,60 @@
 	</c:url>
     
     
-    <a href="${addCard}">Add credit card</a>
-    <br><br>
-    
-    
-    <a href="">Booking a ticket</a>
+    <a href="${addCard}"><input type="submit" name="submit" value="Add credit card"></a>
     <br><br>
     
     
     
-    <a href="">My tickets</a>
+    
+    
+    <c:url value="BookTicket.jsp" var="BookTicket">
+		
+		<c:param name="id" value="${id}"/>
+		
+	</c:url>
+    
+    
+    <a href="${BookTicket}">
+   		<input type="submit" name="submit" value="book a ticket">
+    </a>
     <br><br>
+    
+    	
+    	
+    	
+    <c:url value="ReadTicket.jsp" var="ReadTicket">
+		
+		<c:param name="id" value="${id}"/>
+	</c:url>
+	
+		<a href="${ReadTicket}"><input type="submit" name="submit" value="my tickets"></a>
+    <br><br>
+		
+    
+    
+    
+    <c:url value="Complain.jsp" var="complain">
+		
+		<c:param name="id" value="${id}"/>
+	</c:url>
+	
+		<a href="${complain}"><input type="submit" name="submit" value="make a complain"></a>
+    <br><br>
+    
+    
+    
+    
+    <c:url value="ReadComplain.jsp" var="Readcomplain">
+		
+		<c:param name="id" value="${id}"/>
+	</c:url>
+	
+		<a href="${Readcomplain}"><input type="submit" name="submit" value="View my complains"></a>
+    <br><br>
+    
+    
+    
     
     <c:url value="DeletePassenger.jsp" var="passengerDelete">
 		
@@ -78,7 +118,7 @@
 		
 	</c:url>
     
-    <a href="${passengerDelete}">delete my account</a>
+    <a href="${passengerDelete}"><input type="submit" name="submit" value="delete my account"></a>
     <br><br>
 	
 	

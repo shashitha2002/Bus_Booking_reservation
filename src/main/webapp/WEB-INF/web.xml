@@ -7,7 +7,7 @@
          version="3.1">
          
          
-         <!-- Loginn for the passenger -->
+         <!-- Login for the passenger -->
          
          
         <servlet>
@@ -101,7 +101,270 @@
 		<servlet-mapping>
     		<servlet-name>deletePassenger</servlet-name>
     		<url-pattern>/deletePassenger</url-pattern>
-		</servlet-mapping>         
+		</servlet-mapping>   
+		
+		
+		<!-- Booking bus ticket -->
+         
+         
+        <servlet>
+			<servlet-name>addTicket</servlet-name>
+			<servlet-class>com.bus.BookTicketServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>addTicket</servlet-name>
+			<url-pattern>/addTicket</url-pattern>
+		</servlet-mapping>
+		
+		
+		<!-- Show bus ticket -->
+         
+         
+        <servlet>
+			<servlet-name>DisplayTicket</servlet-name>
+			<servlet-class>com.bus.ReadTicketServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>DisplayTicket</servlet-name>
+			<url-pattern>/DisplayTicket</url-pattern>
+		</servlet-mapping>
+		
+		<!-- get Ticket to update-->
+		
+		<servlet>
+			<servlet-name>getTicketUpdate</servlet-name>
+			<servlet-class>com.bus.TicketToUpdateServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>getTicketUpdate</servlet-name>
+			<url-pattern>/getTicketUpdate</url-pattern>
+		</servlet-mapping>
+		
+		<!-- update ticket -->
+		    
+		<servlet>
+			<servlet-name>TicketUpdate</servlet-name>
+			<servlet-class>com.bus.UpdateTicketServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>TicketUpdate</servlet-name>
+			<url-pattern>/TicketUpdate</url-pattern>
+		</servlet-mapping>
+		
+		<!-- delete ticket -->
+		    
+		<servlet>
+			<servlet-name>deleteTicket</servlet-name>
+			<servlet-class>com.bus.DeleteTicketServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>deleteTicket</servlet-name>
+			<url-pattern>/deleteTicket</url-pattern>
+		</servlet-mapping> 
+		
+		<!-- add vehicle -->
+		    
+		<servlet>
+			<servlet-name>addBus</servlet-name>
+			<servlet-class>com.bus.InsertVehicleServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>addBus</servlet-name>
+			<url-pattern>/addBus</url-pattern>
+		</servlet-mapping>     
+		
+		<!-- Read Vehicles -->
+		
+		<servlet>
+			<servlet-name>Displayvehicle</servlet-name>
+			<servlet-class>com.bus.ReadVehicleServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>Displayvehicle</servlet-name>
+			<url-pattern>/Displayvehicle</url-pattern>
+		</servlet-mapping>
+		
+		<!-- get vehicle to update-->
+		
+		<servlet>
+			<servlet-name>getVehicleUpdate</servlet-name>
+			<servlet-class>com.bus.VehicleToUpdateServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>getVehicleUpdate</servlet-name>
+			<url-pattern>/getVehicleUpdate</url-pattern>
+		</servlet-mapping>
+		
+		
+		<!-- update ticket -->
+		    
+		<servlet>
+			<servlet-name>UpdateVehicle</servlet-name>
+			<servlet-class>com.bus.UpdateVehicleServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>UpdateVehicle</servlet-name>
+			<url-pattern>/UpdateVehicle</url-pattern>
+		</servlet-mapping>
+		
+		<!-- delete ticket -->
+		    
+		<servlet>
+			<servlet-name>DeleteVehicle</servlet-name>
+			<servlet-class>com.bus.DeleteVehicleServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>DeleteVehicle</servlet-name>
+			<url-pattern>/DeleteVehicle</url-pattern>
+		</servlet-mapping>
+		
+		<!-- Manager Login -->
+		
+		<servlet>
+			<servlet-name>ManagerLogin</servlet-name>
+			<servlet-class>com.bus.ManagerLoginServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>ManagerLogin</servlet-name>
+			<url-pattern>/ManagerLogin</url-pattern>
+		</servlet-mapping>
+		
+		
+		<!-- Manager Login -->
+		
+		<servlet>
+			<servlet-name>AddTravel</servlet-name>
+			<servlet-class>com.bus.AddTravelServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>AddTravel</servlet-name>
+			<url-pattern>/AddTravel</url-pattern>
+		</servlet-mapping>
+		
+		<!-- View time table -->
+		
+		<servlet>
+			<servlet-name>timeTable</servlet-name>
+			<servlet-class>com.bus.ReadTimeTableServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>timeTable</servlet-name>
+			<url-pattern>/timeTable</url-pattern>
+		</servlet-mapping>
+		
+		<!-- get travel to update-->
+		
+		<servlet>
+			<servlet-name>getTravelUpdate</servlet-name>
+			<servlet-class>com.bus.TravelToUpdateServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>getTravelUpdate</servlet-name>
+			<url-pattern>/getTravelUpdate</url-pattern>
+		</servlet-mapping>
+		
+		<!-- update time table -->
+		
+		<servlet>
+			<servlet-name>updateTravel</servlet-name>
+			<servlet-class>com.bus.UpdateTravelServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>updateTravel</servlet-name>
+			<url-pattern>/updateTravel</url-pattern>
+		</servlet-mapping>
+		
+		<!-- delete travel -->
+		
+		<servlet>
+			<servlet-name>DeleteTravel</servlet-name>
+			<servlet-class>com.bus.DeleteTravelServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>DeleteTravel</servlet-name>
+			<url-pattern>/DeleteTravel</url-pattern>
+		</servlet-mapping>
+		
+		
+		<!-- insert complain -->
+		
+		<servlet>
+			<servlet-name>addComplain</servlet-name>
+			<servlet-class>com.bus.AddComplainServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>addComplain</servlet-name>
+			<url-pattern>/addComplain</url-pattern>
+		</servlet-mapping>
+		
+		
+		<!-- read my complains -->
+		
+		<servlet>
+			<servlet-name>ReadComplain</servlet-name>
+			<servlet-class>com.bus.ReadComplainServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>ReadComplain</servlet-name>
+			<url-pattern>/ReadComplain</url-pattern>
+		</servlet-mapping>
+		
+		<!-- get complain to update-->
+		
+		<servlet>
+			<servlet-name>getComplainUpdate</servlet-name>
+			<servlet-class>com.bus.ComplainToUpdateServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>getComplainUpdate</servlet-name>
+			<url-pattern>/getComplainUpdate</url-pattern>
+		</servlet-mapping>
+		
+		
+		<!-- get complain to update-->
+		
+		<servlet>
+			<servlet-name>updateComplain</servlet-name>
+			<servlet-class>com.bus.UpdateComplainServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>updateComplain</servlet-name>
+			<url-pattern>/updateComplain</url-pattern>
+		</servlet-mapping>
+		
+		<!-- get complain to update-->
+		
+		<servlet>
+			<servlet-name>DeleteComplain</servlet-name>
+			<servlet-class>com.bus.DeleteComplainServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>DeleteComplain</servlet-name>
+			<url-pattern>/DeleteComplain</url-pattern>
+		</servlet-mapping>
+		
+		    
 </web-app>
          
          
