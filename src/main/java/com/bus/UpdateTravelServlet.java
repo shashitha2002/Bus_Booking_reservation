@@ -23,10 +23,10 @@ public class UpdateTravelServlet extends HttpServlet {
 		String departure = request.getParameter("departure");
 		String destination = request.getParameter("destination");
 		String turns = request.getParameter("turns");
-		String driveName = request.getParameter("driveName");
+		String driverName = request.getParameter("driverName");
 		String busNo = request.getParameter("busNo");
 		
-		boolean isTrue =  busBookingDBUtil.updateTravel(id, Date, time, departure, destination, turns, driveName, busNo);
+		boolean isTrue =  busBookingDBUtil.updateTravel(id, Date, time, departure, destination, turns, driverName, busNo);
 		
 		if(isTrue == true) {
 			

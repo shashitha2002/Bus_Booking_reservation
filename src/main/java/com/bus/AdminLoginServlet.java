@@ -10,26 +10,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/ReadComplainServlet")
-public class ReadComplainServlet extends HttpServlet {
+@WebServlet("/AdminLoginServlet")
+public class AdminLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
+   
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String id = request.getParameter("id");
+		String username = request.getParameter("name");
+		String password = request.getParameter("password");
 		
 		try {
 			
-			List<ComplainsAndResponds> comDetails = busBookingDBUtil.getMyComplains(id);
-			request.setAttribute("comDetails", comDetails);
+				List<Admin> adminDetails = busBookingDBUtil.Adminvalidate(username, password);
+				request.setAttribute("adminDetails", adminDetails);
 			
-			
-		}catch(Exception e) {
+		}
+		catch(Exception e) {
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher dis = request.getRequestDispatcher("myComplains.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("AdminPro.jsp");
 		dis.forward(request, response);
+	
 		
 	}
 

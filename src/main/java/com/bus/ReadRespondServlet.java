@@ -10,25 +10,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/ReadComplainServlet")
-public class ReadComplainServlet extends HttpServlet {
+
+@WebServlet("/ReadRespondServlet")
+public class ReadRespondServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
+       
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String id = request.getParameter("id");
 		
 		try {
 			
-			List<ComplainsAndResponds> comDetails = busBookingDBUtil.getMyComplains(id);
-			request.setAttribute("comDetails", comDetails);
+			List<ComplainsAndResponds> resDetails = busBookingDBUtil.getAllRespond();
+			request.setAttribute("resDetails", resDetails);
 			
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher dis = request.getRequestDispatcher("myComplains.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("AdminComplains.jsp");
 		dis.forward(request, response);
 		
 	}

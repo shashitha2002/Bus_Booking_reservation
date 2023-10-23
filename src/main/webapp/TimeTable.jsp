@@ -21,7 +21,7 @@
             <th>departure</th>
             <th>destination</th>
             <th>turns</th>
-            <th>Driver Driver</th>
+            <th>Driver Name</th>
             <th>Bus Number</th>
         </tr>
 	

@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>this is passenger profile</h1>
+	
 	
 	<c:forEach var="pas" items="${pasDetails}">
 	

@@ -603,14 +603,16 @@ package com.bus;
 				
 				//*********** Update vehicle ***************//
 				
-				public static boolean updateVehicle(String BusOwnerId , String RegNo , String chassie) {
+				public static boolean updateVehicle(String Id , String RegNo , String chassie, String BusOwnerId) {
+					
+					int convId = Integer.parseInt(BusOwnerId);
 					
 					boolean isSuccess = false;
 					try {
 						
 						conn = DBConnect.getConnection();
 						stmt = conn.createStatement();
-						String sql = "UPDATE vehicle SET vehicle_Reg_No = '"+RegNo+"', chassisNo = '"+chassie+"'where bus_owner_id = '"+BusOwnerId+"'";
+						String sql = "UPDATE vehicle SET vehicle_Reg_No = '"+RegNo+"', chassisNo = '"+chassie+"'where bus_owner_id = '"+convId+"'";
 						
 						int rs = stmt.executeUpdate(sql);
 						
@@ -815,7 +817,7 @@ package com.bus;
 				
 				//*********** Update Travel ***************//
 				
-				public static boolean updateTravel(String id,String date , String time , String departure , String destination , String turns , String driveName, String busNo) {
+				public static boolean updateTravel(String id,String date ,String time ,String departure , String destination , String turns , String driverName, String busNo) {
 					
 					int convId = Integer.parseInt(id);
 					int convBusNo = Integer.parseInt(busNo);
@@ -825,7 +827,7 @@ package com.bus;
 						
 						conn = DBConnect.getConnection();
 						stmt = conn.createStatement();
-						String sql = "UPDATE travel SET date = '"+date+"', time = '"+time+"',departure = '"+departure+"',destination = '"+destination+"',turns='"+turns+"',driveName='"+driveName+"',busNo='"+convBusNo+"' where travel_id = '"+convId+"'";
+						String sql = "UPDATE travel SET date = '"+date+"', time = '"+time+"',departure = '"+departure+"',destination = '"+destination+"',turns='"+turns+"',driverName='"+driverName+"',busNo='"+convBusNo+"' where travel_id = '"+convId+"'";
 						
 						int rs = stmt.executeUpdate(sql);
 						
@@ -845,7 +847,7 @@ package com.bus;
 				}
 				
 				
-				//*********** Delete ticket ***************//
+				//*********** Delete travel ***************//
 				
 				public static boolean deleteTravel(String id) {
 					
@@ -1050,6 +1052,184 @@ package com.bus;
 					
 					return isSuccess;
 					
+				}
+				
+				
+				//*********** Admin validate ***************//
+				
+				public static List<Admin> Adminvalidate(String userName,String password){
+					
+					ArrayList<Admin> admin = new ArrayList<>();
+					
+					
+					try {
+						
+						conn = DBConnect.getConnection();
+						stmt = conn.createStatement();
+						
+						String sql = "select * from admin where username = '"+userName+"' and password = '"+password+"'";
+						
+						rs = stmt.executeQuery(sql);
+						
+						if(rs.next()) {
+							int id = rs.getInt(1);
+							String name = rs.getString(2);
+							String NIC = rs.getString(3);
+							String userU = rs.getString(4);	
+							String passU = rs.getString(5);
+							
+							
+							Admin a = new Admin(id,name,NIC,userU,passU);
+							
+							admin.add(a);
+							
+						}
+						
+						
+					}catch(Exception e) {
+						e.printStackTrace();
+					}
+					
+					return admin;
+					
+				}
+				
+				
+				//***********get all complains for admin***************//
+				
+				public static List<ComplainsAndResponds> getAllRespond(){
+					
+					ArrayList<ComplainsAndResponds> complains = new ArrayList<>();
+					
+					try {
+						
+						conn = DBConnect.getConnection();
+						stmt = conn.createStatement();
+						String sql = "select * from complainsresponds";
+						rs = stmt.executeQuery(sql);
+						
+						while(rs.next()) {
+							
+							int id = rs.getInt(1);
+							int passengerId = rs.getInt(2);
+							String complain = rs.getString(3);
+							String respond = rs.getString(4);
+							
+							ComplainsAndResponds cnr = new ComplainsAndResponds(id,passengerId,complain,respond);
+							
+							complains.add(cnr);
+							
+						}
+						
+					}catch(Exception e) {
+						e.printStackTrace();
+					}
+					
+					return complains;
+					
+				}
+				
+				
+				//*********** get a single Complain to Update ***************//
+				
+				public static List<ComplainsAndResponds> getToUpdateRespond(String rid){
+					
+					int convId = Integer.parseInt(rid);
+					
+					ArrayList<ComplainsAndResponds> complains = new ArrayList<>();
+					
+					try {
+						
+						conn = DBConnect.getConnection();
+						stmt = conn.createStatement();
+						String sql = "select * from complainsresponds where comId='"+convId+"'";
+						rs = stmt.executeQuery(sql);
+						
+						while(rs.next()) {
+							
+							int id = rs.getInt(1);
+							int passengerId = rs.getInt(2);
+							String complain = rs.getString(3);
+							String respond = rs.getString(4);
+							
+							ComplainsAndResponds cnr = new ComplainsAndResponds(id,passengerId,complain,respond);
+							
+							complains.add(cnr);
+							
+							
+							
+						}
+						
+					}catch(Exception e) {
+						e.printStackTrace();
+					}
+					
+					return complains;
+					
+				}
+				
+				
+				//*********** Update complains ***************//
+				
+				public static boolean updateRespond(String comId,String complain,String respond) {
+					
+					int convId = Integer.parseInt(comId);
+					
+					boolean isSuccess = false;
+					try {
+						
+						conn = DBConnect.getConnection();
+						stmt = conn.createStatement();
+						String sql = "UPDATE complainsresponds SET respond = '"+respond+"' where comId = '"+convId+"'";
+						
+						int rs = stmt.executeUpdate(sql);
+						
+						if(rs > 0) {
+							isSuccess = true;
+						}
+						else {
+							isSuccess = false;
+						}
+						
+					}catch(Exception e) {
+						e.printStackTrace();
+					}
+					
+					
+					return isSuccess;
+				}
+				
+				
+				//*********** Delete Response ***************//
+				
+				public static boolean deleteResponse(String id) {
+					
+					boolean isSuccess = false;
+					
+					int convId = Integer.parseInt(id);
+					
+					try {
+						
+						conn = DBConnect.getConnection();
+						stmt = conn.createStatement();
+						
+						String sql = "DELETE FROM complainsresponds WHERE comId = '"+convId+"'";
+						int rs = stmt.executeUpdate(sql);
+						
+						if(rs > 0) {
+							isSuccess = true;
+							
+						}
+						else {
+							isSuccess = false;
+						}
+						
+						
+					}catch(Exception e) {
+						e.printStackTrace();
+					}
+					
+					return isSuccess;
 					
 				}
 }

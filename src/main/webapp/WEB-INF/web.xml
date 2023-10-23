@@ -340,7 +340,7 @@
 		</servlet-mapping>
 		
 		
-		<!-- get complain to update-->
+		<!-- update complain-->
 		
 		<servlet>
 			<servlet-name>updateComplain</servlet-name>
@@ -352,7 +352,7 @@
 			<url-pattern>/updateComplain</url-pattern>
 		</servlet-mapping>
 		
-		<!-- get complain to update-->
+		<!-- delete complain-->
 		
 		<servlet>
 			<servlet-name>DeleteComplain</servlet-name>
@@ -364,7 +364,70 @@
 			<url-pattern>/DeleteComplain</url-pattern>
 		</servlet-mapping>
 		
-		    
+		<!-- Admin Login-->
+		
+		<servlet>
+			<servlet-name>AdminLogin</servlet-name>
+			<servlet-class>com.bus.AdminLoginServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>AdminLogin</servlet-name>
+			<url-pattern>/AdminLogin</url-pattern>
+		</servlet-mapping> 
+		
+		<!-- get all respond to admin-->
+		
+		<servlet>
+			<servlet-name>Readrespond</servlet-name>
+			<servlet-class>com.bus.ReadRespondServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>Readrespond</servlet-name>
+			<url-pattern>/Readrespond</url-pattern>
+		</servlet-mapping>
+		
+		
+		<!-- get a single respond to update -->
+		
+		<servlet>
+			<servlet-name>getRespondUpdate</servlet-name>
+			<servlet-class>com.bus.RespondToUpdateServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>getRespondUpdate</servlet-name>
+			<url-pattern>/getRespondUpdate</url-pattern>
+		</servlet-mapping> 
+		
+		
+		<!-- update responds -->
+		
+		<servlet>
+			<servlet-name>updateRespond</servlet-name>
+			<servlet-class>com.bus.UpdateRespondServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>updateRespond</servlet-name>
+			<url-pattern>/updateRespond</url-pattern>
+		</servlet-mapping> 
+		
+		
+		<!-- Delete responds -->
+		
+		<servlet>
+			<servlet-name>deleteRespond</servlet-name>
+			<servlet-class>com.bus.DeleteRespondServlet</servlet-class>
+		</servlet>
+		
+		<servlet-mapping>
+			<servlet-name>deleteRespond</servlet-name>
+			<url-pattern>/deleteRespond</url-pattern>
+		</servlet-mapping> 
+		   
+		   
 </web-app>
          
          
