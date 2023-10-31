@@ -430,12 +430,13 @@ package com.bus;
 				
 				public static boolean updateTicket(String id,String date,String time,String start,String destination,String seatNo) {
 					
+					int convId = Integer.parseInt(id);					
 					boolean isSuccess = false;
 					try {
 						
 						conn = DBConnect.getConnection();
 						stmt = conn.createStatement();
-						String sql = "UPDATE tickets SET Date = '"+date+"', time = '"+time+"', start = '"+start+"', destination = '"+destination+"', seatNo = '"+seatNo+"' where ticket_no = '"+id+"'";
+						String sql = "UPDATE tickets SET date = '"+date+"', time = '"+time+"', start = '"+start+"', destination = '"+destination+"', seatNo = '"+seatNo+"' where ticket_no = '"+convId+"'";
 						
 						int rs = stmt.executeUpdate(sql);
 						
@@ -572,7 +573,7 @@ package com.bus;
 						
 						conn = DBConnect.getConnection();
 						stmt = conn.createStatement();
-						String sql = "select * from vehicle where bus_owner_id='"+convId+"'";
+						String sql = "select * from vehicle where vNo='"+convId+"'";
 						rs = stmt.executeQuery(sql);
 						
 						while(rs.next()) {
@@ -605,14 +606,14 @@ package com.bus;
 				
 				public static boolean updateVehicle(String Id , String RegNo , String chassie, String BusOwnerId) {
 					
-					int convId = Integer.parseInt(BusOwnerId);
+					int convId = Integer.parseInt(Id);
 					
 					boolean isSuccess = false;
 					try {
 						
 						conn = DBConnect.getConnection();
 						stmt = conn.createStatement();
-						String sql = "UPDATE vehicle SET vehicle_Reg_No = '"+RegNo+"', chassisNo = '"+chassie+"'where bus_owner_id = '"+convId+"'";
+						String sql = "UPDATE vehicle SET vehicle_Reg_No = '"+RegNo+"', chassisNo = '"+chassie+"'where vNo = '"+convId+"'";
 						
 						int rs = stmt.executeUpdate(sql);
 						
@@ -645,7 +646,7 @@ package com.bus;
 						conn = DBConnect.getConnection();
 						stmt = conn.createStatement();
 						
-						String sql = "DELETE FROM vehicle WHERE bus_owner_id = '"+convId+"'";
+						String sql = "DELETE FROM vehicle WHERE vNo = '"+convId+"'";
 						int rs = stmt.executeUpdate(sql);
 						
 						if(rs > 0) {

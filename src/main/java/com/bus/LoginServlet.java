@@ -1,6 +1,7 @@
 package com.bus;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -17,7 +18,10 @@ public class LoginServlet extends HttpServlet {
        
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		PrintWriter out = response.getWriter();
+		response.setContentType("text/html");
+		
 		String username = request.getParameter("name");
 		String password = request.getParameter("password");
 		
@@ -25,14 +29,19 @@ public class LoginServlet extends HttpServlet {
 			
 				List<Passenger> pasDetails = busBookingDBUtil.validate(username, password);
 				request.setAttribute("pasDetails", pasDetails);
+				
+				if(pasDetails != null) {
+					RequestDispatcher dis = request.getRequestDispatcher("passengerPro.jsp");
+					dis.forward(request, response);
+				}
 			
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher dis = request.getRequestDispatcher("passengerPro.jsp");
-		dis.forward(request, response);
+		
+		
 	}
 
 }

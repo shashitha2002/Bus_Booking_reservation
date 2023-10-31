@@ -24,10 +24,8 @@ public class UpdateComplainServlet extends HttpServlet {
 		
 		if(isTrue == true) {
 			
-			List<ComplainsAndResponds> comDetails = busBookingDBUtil.getMyComplains(comId);
-			request.setAttribute("comDetails", comDetails);
 			
-			RequestDispatcher dis = request.getRequestDispatcher("myComplains.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("PassengerLogin.jsp");
 			dis.forward(request, response);
 		}
 		

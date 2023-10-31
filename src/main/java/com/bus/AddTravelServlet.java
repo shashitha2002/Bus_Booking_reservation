@@ -30,8 +30,6 @@ public class AddTravelServlet extends HttpServlet {
 		istrue = busBookingDBUtil.insertTravel(Date, time, departure, destination, turns, driveName,busNo);
 		
 		if(istrue == true) {
-			//List<Passenger> pasDetails = busBookingDBUtil.getPassengerDetails(id);
-			//request.setAttribute("pasDetails", pasDetails);
 			
 			RequestDispatcher dis = request.getRequestDispatcher("ManagerLogin.jsp");
 			dis.forward(request, response);
